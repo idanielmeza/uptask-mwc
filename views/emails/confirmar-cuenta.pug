@@ -1,0 +1,16 @@
+doctype html
+html(lang="ens")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        style
+            include ./email.css
+    body
+        h2 Confirma tu cuenta
+
+        p Hola, se rquiere confirmar tu correo, haz click en el siguiente enlace para confirmarla.
+
+        a(href=`${confirmarUrl}`) Confirma tu cuenta
+
+        p Si no puedes hacer click en el enlace, copia y pega la siguiente dirección en tu navegador: #{confirmarUrl}

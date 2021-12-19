@@ -1,0 +1,27 @@
+doctype html
+html(lang="es")
+    head
+        include partials/header
+    body.login
+        .contenedor-formulario
+            h1 Crear una cuenta 
+
+            if locals.mensajes
+                .alertas 
+                    each categoria in Object.keys(locals.mensajes)
+                        each e in mensajes[categoria]
+                            .alerta(class=`${categoria}`)
+                                p= e
+
+            form#formulario.caja.caja-login(method="post" action="/crear-cuenta")
+                .campo 
+                    label(for='email') E-mail
+                    input(type='email' name='email' placeholder='E-mail' value=`${email ? (email) : ''}`)
+                .campo 
+                    label(for='password') Contraseña
+                    input(type='password' name='password' placeholder='Contraseña')
+
+                .campo.enviar
+                    input.boton(type='submit' value='Crear cuenta')
+                .campo 
+                    a(href="/iniciar-sesion") Ya tengo una cuenta

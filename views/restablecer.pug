@@ -1,0 +1,22 @@
+html(lang="en")
+    head
+        include partials/header
+    body.login
+        .contenedor-formulario 
+            h1= nombrePagina 
+            if locals.mensajes
+                .alertas 
+                    each categoria in Object.keys(locals.mensajes)
+                        each e in mensajes[categoria]
+                            .alerta(class=`${categoria}`)
+                                p= e
+            p Agrega tu email para reestablecer tu contrasena
+            form.caja-login(method="POST" action="/restablecer")
+                .campo 
+                    label(for='email') E-mail
+                    input(type='email' name='email' placeholder='E-mail' value=`${email ? (email) : ''}`)
+
+                .campo.enviar
+                    input.boton(type='submit' value='Restablecer')
+                .campo.acciones 
+                    a(href="/iniciar-sesion") Volver a iniciar sesión
